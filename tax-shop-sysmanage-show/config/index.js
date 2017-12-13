@@ -3,6 +3,8 @@ var path = require('path')
 var assetsRoot = path.resolve(__dirname, '../build/resources/main/static')// <-----1.add
 module.exports = {
   build: {
+    sitEnv: require('./sit.env'),
+    prodEnv: require('./prod.env'),
     env: require('./prod.env'),
     index: path.resolve(assetsRoot, 'index.html'),// <-----2.change
     assetsRoot: assetsRoot,// <-----3.change
