@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id=":tax-shop-frame" external.linked.project.path="$MODULE_DIR$/../../tax-shop-frame" external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" external.system.module.group="com.yhsoft" external.system.module.version="1.0" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <content url="file://$MODULE_DIR$/../../tax-shop-frame">
+      <excludeFolder url="file://$MODULE_DIR$/../../tax-shop-frame/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/../../tax-shop-frame/build" />
+      <excludeFolder url="file://$MODULE_DIR$/../../tax-shop-frame/out" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

@@ -1,0 +1,17 @@
+apply plugin: 'war'
+
+archivesBaseName ='tax-shop-api'
+jar {
+    baseName = 'tax-shop-api'
+    version =  '1.0'
+    from('src/main/java') {
+        include 'config/*.xml'
+        include 'mapper/*.xml'
+    }
+}
+    dependencies {
+        compile project(':tax-shop-frame')
+        compile project(':tax-shop-sysmanage-show')
+    }
+
+

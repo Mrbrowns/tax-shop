@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tax-shop.iml" filepath="$PROJECT_DIR$/.idea/modules/tax-shop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tax-shop-api.iml" filepath="$PROJECT_DIR$/.idea/modules/tax-shop-api.iml" group="tax-shop-api" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tax-shop-api/tax-shop-api_main.iml" filepath="$PROJECT_DIR$/.idea/modules/tax-shop-api/tax-shop-api_main.iml" group="tax-shop-api" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tax-shop-api/tax-shop-api_test.iml" filepath="$PROJECT_DIR$/.idea/modules/tax-shop-api/tax-shop-api_test.iml" group="tax-shop-api" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tax-shop-frame.iml" filepath="$PROJECT_DIR$/.idea/modules/tax-shop-frame.iml" group="tax-shop-frame" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tax-shop-frame/tax-shop-frame_main.iml" filepath="$PROJECT_DIR$/.idea/modules/tax-shop-frame/tax-shop-frame_main.iml" group="tax-shop-frame" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tax-shop-frame/tax-shop-frame_test.iml" filepath="$PROJECT_DIR$/.idea/modules/tax-shop-frame/tax-shop-frame_test.iml" group="tax-shop-frame" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tax-shop-mybatis-cmeu.iml" filepath="$PROJECT_DIR$/.idea/modules/tax-shop-mybatis-cmeu.iml" group="tax-shop-mybatis-cmeu" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tax-shop-mybatis-cmeu/tax-shop-mybatis-cmeu_main.iml" filepath="$PROJECT_DIR$/.idea/modules/tax-shop-mybatis-cmeu/tax-shop-mybatis-cmeu_main.iml" group="tax-shop-mybatis-cmeu" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tax-shop-mybatis-cmeu/tax-shop-mybatis-cmeu_test.iml" filepath="$PROJECT_DIR$/.idea/modules/tax-shop-mybatis-cmeu/tax-shop-mybatis-cmeu_test.iml" group="tax-shop-mybatis-cmeu" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tax-shop-sysmanage-show.iml" filepath="$PROJECT_DIR$/.idea/modules/tax-shop-sysmanage-show.iml" group="tax-shop-sysmanage-show" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tax-shop-sysmanage-show/tax-shop-sysmanage-show_main.iml" filepath="$PROJECT_DIR$/.idea/modules/tax-shop-sysmanage-show/tax-shop-sysmanage-show_main.iml" group="tax-shop-sysmanage-show" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tax-shop-sysmanage-show/tax-shop-sysmanage-show_test.iml" filepath="$PROJECT_DIR$/.idea/modules/tax-shop-sysmanage-show/tax-shop-sysmanage-show_test.iml" group="tax-shop-sysmanage-show" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tax-shop-web.iml" filepath="$PROJECT_DIR$/.idea/modules/tax-shop-web.iml" group="tax-shop-web" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tax-shop-web/tax-shop-web_main.iml" filepath="$PROJECT_DIR$/.idea/modules/tax-shop-web/tax-shop-web_main.iml" group="tax-shop-web" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tax-shop-web/tax-shop-web_test.iml" filepath="$PROJECT_DIR$/.idea/modules/tax-shop-web/tax-shop-web_test.iml" group="tax-shop-web" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tax-shop_main.iml" filepath="$PROJECT_DIR$/.idea/modules/tax-shop_main.iml" group="tax-shop" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tax-shop_test.iml" filepath="$PROJECT_DIR$/.idea/modules/tax-shop_test.iml" group="tax-shop" />
+    </modules>
+  </component>
+</project>

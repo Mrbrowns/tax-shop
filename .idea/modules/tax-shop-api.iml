@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id=":tax-shop-api" external.linked.project.path="$MODULE_DIR$/../../tax-shop-api" external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" external.system.module.group="com.yhsoft" external.system.module.version="1.0" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../tax-shop-api">
+      <excludeFolder url="file://$MODULE_DIR$/../../tax-shop-api/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/../../tax-shop-api/build" />
+      <excludeFolder url="file://$MODULE_DIR$/../../tax-shop-api/out" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

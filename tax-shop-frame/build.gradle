@@ -1,0 +1,12 @@
+jar {
+    baseName = 'tax-shop-frame'
+    version =  '1.0'
+}
+
+
+dependencies {
+    compile group: 'commons-codec', name: 'commons-codec', version: '1.11'
+    compile group: 'eu.bitwalker', name: 'UserAgentUtils', version: '1.19'
+    // https://mvnrepository.com/artifact/org.mindrot/jbcrypt
+    compile group: 'org.mindrot', name: 'jbcrypt', version: '0.4'
+}

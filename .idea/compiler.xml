@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="tax-shop-api_main" target="1.8" />
+      <module name="tax-shop-api_test" target="1.8" />
+      <module name="tax-shop-frame_main" target="1.8" />
+      <module name="tax-shop-frame_test" target="1.8" />
+      <module name="tax-shop-mybatis-cmeu_main" target="1.8" />
+      <module name="tax-shop-mybatis-cmeu_main~1" target="1.8" />
+      <module name="tax-shop-mybatis-cmeu_test" target="1.8" />
+      <module name="tax-shop-mybatis-cmeu_test~1" target="1.8" />
+      <module name="tax-shop-sysmanage-show_main" target="1.8" />
+      <module name="tax-shop-sysmanage-show_test" target="1.8" />
+      <module name="tax-shop-sysmanage_main" target="1.8" />
+      <module name="tax-shop-sysmanage_test" target="1.8" />
+      <module name="tax-shop-web_main" target="1.8" />
+      <module name="tax-shop-web_test" target="1.8" />
+      <module name="tax-shop_main" target="1.8" />
+      <module name="tax-shop_test" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

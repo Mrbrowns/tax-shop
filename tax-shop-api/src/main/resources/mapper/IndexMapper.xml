@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yhsoft.api.mapper.IndexMapper">
+    <resultMap id="result_Index_Map" type="com.yhsoft.api.param.IndexParam">
+        <result column="user_total" property="userTotal" />
+        <result column="case_total" property="caseTotal" />
+        <result column="f_total" property="fTotal" />
+        <result column="m_total" property="mTotal" />
+        <result column="comment_total" property="commentTotal" />
+        <result column="taxlib_total" property="taxlibTotal" />
+    </resultMap>
+
+    <select id="getStatisticsInfo" resultMap="result_Index_Map">
+
+        SELECT
+        a.user_total,
+        b.case_total,
+        b.f_total,
+        b.m_total,
+        c.comment_total,
+        d.taxlib_total
+        FROM
+        (SELECT
+        COUNT(1) user_total
+        FROM
+        sys_user
+        WHERE
+        <![CDATA[TYPE <> 3]]>
+        AND STATUS = 0) a,
+        (SELECT
+        COUNT(1) case_total,
+        SUM(
+        CASE
+        WHEN case_type = 1
+        THEN 1
+        ELSE 0
+        END
+        ) f_total,
+        SUM(
+        CASE
+        WHEN case_type = 2
+        THEN 1
+        ELSE 0
+        END
+        ) m_total
+        FROM
+        info_case
+        WHERE state = 2) b,
+        (SELECT
+        COUNT(1) comment_total
+        FROM
+        info_case_comment) c,
+        (SELECT
+        COUNT(1) taxlib_total
+        FROM
+        info_orders s
+        WHERE s.order_status = 1
+        AND s.order_product_type = 4) d
+    </select>
+
+
+</mapper>
