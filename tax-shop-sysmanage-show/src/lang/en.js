@@ -4,6 +4,7 @@ export default {
     introduction: 'Introduction',
     documentation: 'Documentation',
     permission: 'Permission',
+    system:'SysManage',
     icons: 'Icons',
     components: 'Components',
     componentIndex: 'Introduction',
@@ -43,6 +44,7 @@ export default {
     exportZip: 'Zip',
     theme: 'Theme',
     clipboardDemo: 'Clipboard',
-    i18n: 'I18n'
+    i18n: 'I18n',
+    menuIndex:'MenuSystem'
   }
 }

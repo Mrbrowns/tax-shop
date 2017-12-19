@@ -4,6 +4,7 @@ export default {
     introduction: '简述',
     documentation: '文档',
     permission: '权限测试页',
+    system:'后台管理',
     icons: '图标',
     components: '组件',
     componentIndex: '介绍',
@@ -43,6 +44,7 @@ export default {
     exportZip: 'zip',
     theme: '换肤',
     clipboardDemo: 'clipboard',
-    i18n: '国际化'
+    i18n: '国际化',
+    menuIndex:'菜单管理'
   }
 }
