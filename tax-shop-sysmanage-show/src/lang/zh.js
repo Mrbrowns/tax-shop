@@ -45,6 +45,7 @@ export default {
     theme: '换肤',
     clipboardDemo: 'clipboard',
     i18n: '国际化',
-    menuIndex:'菜单管理'
+    menuIndex:'菜单管理',
+    roleIndex:'角色管理'
   }
 }

@@ -56,7 +56,20 @@ export default new Router({
 })
 
 export const asyncRouterMap = [
-
+  {
+    path: '/system',
+    component: Layout,
+    redirect: 'noredirect',
+    name: 'system',
+    meta: {
+      title: 'system',
+      icon: 'peoples'
+    },
+    children: [
+      { path: 'menu', component: _import('menu/index'), name: 'menuIndex', meta: { title: 'menuIndex', noCache: true }},
+      { path: 'role', component: _import('role/index'), name: 'roleIndex', meta: { title: 'roleIndex', noCache: true }}
+    ]
+  },
   {
     path: '/permission',
     component: Layout,

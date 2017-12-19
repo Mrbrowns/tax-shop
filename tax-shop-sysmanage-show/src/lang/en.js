@@ -45,6 +45,7 @@ export default {
     theme: 'Theme',
     clipboardDemo: 'Clipboard',
     i18n: 'I18n',
-    menuIndex:'MenuSystem'
+    menuIndex:'MenuSystem',
+    roleIndex:'RoleSystem'
   }
 }
