@@ -1,19 +1,109 @@
 <template>
-  <div class="errPage-container">
+  <el-row>
+    <el-col :span="8" class="left-side"><el-tree
+      :data="data4"
+      :props="defaultProps"
+      show-checkbox
+      node-key="id"
+      default-expand-all
+      :expand-on-click-node="false"
+      @node-click="handleNodeClick">
+      :render-content="renderContent">
+    </el-tree></el-col>
+    <el-col :span="12"><div class="grid-content bg-purple-light">
 
-    <h3>请点击右上角bug小图表</h3>
-    <code>
-      现在的管理后台基本都是spa的形式了，它增强了用户体验，但同时也会增加页面出问题的可能性，可能一个小小的疏忽就导致整个页面的死锁。好在Vue官网提供了一个方法来捕获处理异常
-    </code>
-    <a href="#"><img src='http://panjiachen.github.io/images/errHandler.png'></a>
-  </div>
+
+    </div></el-col>
+  </el-row>
+
 </template>
-
 <script>
-</script>
+  let id = 1000;
 
+  export default {
+    data() {
+      return {
+        data4: [{
+          id: 1,
+          label: '一级 1',
+          children: [{
+            id: 4,
+            label: '二级 1-1',
+            children: [{
+              id: 9,
+              label: '三级 1-1-1'
+            }, {
+              id: 10,
+              label: '三级 1-1-2'
+            }]
+          }]
+        }, {
+          id: 2,
+          label: '一级 2',
+          children: [{
+            id: 5,
+            label: '二级 2-1'
+          }, {
+            id: 6,
+            label: '二级 2-2'
+          }]
+        }, {
+          id: 3,
+          label: '一级 3',
+          children: [{
+            id: 7,
+            label: '二级 3-1'
+          }, {
+            id: 8,
+            label: '二级 3-2'
+          }]
+        }],
+        defaultProps: {
+          children: 'children',
+          label: 'label'
+        }
+      }
+    },
+
+    methods: {
+      handleNodeClick(data) {
+        console.log(data);
+      },
+      append(data) {
+        const newChild = { id: id++, label: 'testtest', children: [] };
+        if (!data.children) {
+          this.$set(data, 'children', []);
+        }
+        data.children.push(newChild);
+      },
+      remove(node, data) {
+        const parent = node.parent;
+        const children = parent.data.children || parent.data;
+        const index = children.findIndex(d => d.id === data.id);
+        children.splice(index, 1);
+      },
+
+      renderContent(h, { node, data, store }) {
+        return (
+          <span style="flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
+          <span>
+          <span>{node.label}</span>
+        </span>
+        <span>
+        <el-button style="font-size: 12px;" type="text" on-click={ () => this.append(data) }>Append</el-button>
+        <el-button style="font-size: 12px;" type="text" on-click={ () => this.remove(node, data) }>Delete</el-button>
+        </span>
+        </span>);
+      }
+    }
+  };
+</script>
 <style scoped>
-  .errPage-container {
-    padding: 30px;
+  .left-side{
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+  .right-side{
+
   }
 </style>
