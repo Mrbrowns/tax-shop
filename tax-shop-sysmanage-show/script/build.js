@@ -10,6 +10,8 @@ var path = require('path')
 // chalk，用于在控制台输出带颜色字体的插件
 var chalk = require('chalk')
 var webpack = require('webpack')
+var lodash = require('lodash');
+
 var config = require('../config')
 var webpackConfig = require('./webpack.prod.conf')
 

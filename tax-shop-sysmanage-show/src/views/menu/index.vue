@@ -1,109 +1,60 @@
 <template>
-  <el-row>
-    <el-col :span="8" class="left-side"><el-tree
-      :data="data4"
-      :props="defaultProps"
-      show-checkbox
-      node-key="id"
-      default-expand-all
-      :expand-on-click-node="false"
-      @node-click="handleNodeClick">
-      :render-content="renderContent">
-    </el-tree></el-col>
-    <el-col :span="12"><div class="grid-content bg-purple-light">
-
-
-    </div></el-col>
-  </el-row>
-
+  <el-container>
+    <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
+      <menu-tree></menu-tree>
+    </el-aside>
+    <el-container>
+      <el-header style="text-align: right; font-size: 12px">
+        <el-dropdown>
+          <i class="el-icon-setting" style="margin-right: 15px"></i>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item>查看</el-dropdown-item>
+            <el-dropdown-item>新增</el-dropdown-item>
+            <el-dropdown-item>删除</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+        <span>王小虎</span>
+      </el-header>
+      <el-main v-bind:style="{ 'height': mainHeight + 'px'}">
+        <menu-detail></menu-detail>
+      </el-main>
+    </el-container>
+  </el-container>
 </template>
 <script>
-  let id = 1000;
-
+  import MenuTree from './components/MenuTree'
+  import MenuDetail from './components/MenuDetail'
+  import Lodash from 'lodash'
   export default {
-    data() {
+    name: 'menuIndes',
+    components: { MenuTree,MenuDetail },
+    data: function () {
       return {
-        data4: [{
-          id: 1,
-          label: '一级 1',
-          children: [{
-            id: 4,
-            label: '二级 1-1',
-            children: [{
-              id: 9,
-              label: '三级 1-1-1'
-            }, {
-              id: 10,
-              label: '三级 1-1-2'
-            }]
-          }]
-        }, {
-          id: 2,
-          label: '一级 2',
-          children: [{
-            id: 5,
-            label: '二级 2-1'
-          }, {
-            id: 6,
-            label: '二级 2-2'
-          }]
-        }, {
-          id: 3,
-          label: '一级 3',
-          children: [{
-            id: 7,
-            label: '二级 3-1'
-          }, {
-            id: 8,
-            label: '二级 3-2'
-          }]
-        }],
-        defaultProps: {
-          children: 'children',
-          label: 'label'
-        }
+        mainHeight: document.body.clientHeight-150
       }
     },
-
-    methods: {
-      handleNodeClick(data) {
-        console.log(data);
-      },
-      append(data) {
-        const newChild = { id: id++, label: 'testtest', children: [] };
-        if (!data.children) {
-          this.$set(data, 'children', []);
-        }
-        data.children.push(newChild);
-      },
-      remove(node, data) {
-        const parent = node.parent;
-        const children = parent.data.children || parent.data;
-        const index = children.findIndex(d => d.id === data.id);
-        children.splice(index, 1);
-      },
-
-      renderContent(h, { node, data, store }) {
-        return (
-          <span style="flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
-          <span>
-          <span>{node.label}</span>
-        </span>
-        <span>
-        <el-button style="font-size: 12px;" type="text" on-click={ () => this.append(data) }>Append</el-button>
-        <el-button style="font-size: 12px;" type="text" on-click={ () => this.remove(node, data) }>Delete</el-button>
-        </span>
-        </span>);
-      }
+    mounted: function () {
+      const that = this
+      // _.debounce 是一个通过 lodash 限制操作频率的函数。
+      window.onresize = _.debounce(() => {
+        console.log("onresize:" + that.mainHeight)
+        that.mainHeight = document.body.clientHeight
+      }, 400)
     }
   };
 </script>
 <style scoped>
+  .el-header {
+    background-color: #B3C0D1;
+    color: #333;
+    line-height: 60px;
+  }
   .left-side{
     margin-top: 20px;
     margin-left: 20px;
   }
   .right-side{
-
+       margin-top: 20px;
+        margin-left: 20px;
   }
 </style>
