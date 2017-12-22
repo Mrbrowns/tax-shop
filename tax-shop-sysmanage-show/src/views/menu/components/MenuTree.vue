@@ -1,12 +1,12 @@
 <template>
-  <div>
+<div>
   <el-input
     style="    width: 90%;
     margin: 10px 5px 0 10px;"
     placeholder="输入关键字进行过滤"
     v-model="filterText">
   </el-input>
-       <el-tree style="background-color: rgb(238, 241, 246);position: absolute;margin: 20px;"
+       <el-tree style="position: absolute;margin: 20px;"
       :data="data4"
       :props="defaultProps"
       node-key="id"
@@ -16,13 +16,16 @@
       :filter-node-method="filterNode"
       ref="tree2">
       </el-tree>
-  </div>
+</div>
 </template>
 <script>
+  // collapse 展开折叠
+
   let id = 1000;
 
   export default {
     name:"menuTree",
+
     watch: {
       filterText(val) {
         this.$refs.tree2.filter(val);
@@ -30,6 +33,7 @@
     },
     data() {
       return {
+        parentLabel: '',
         filterText: '',
         data4:
          [{id: 0
@@ -78,7 +82,7 @@
 
     methods: {
       handleNodeClick(data) {
-        console.log(data);
+        return parentLabel=>data.label;
       },
       append(data) {
         const newChild = { id: id++, label: 'testtest', children: [] };

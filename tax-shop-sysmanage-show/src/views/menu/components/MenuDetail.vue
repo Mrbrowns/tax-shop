@@ -3,51 +3,39 @@
     <el-form class="form-container" :model="postForm" :rules="rules" ref="postForm">
       <div class="createPost-main-container">
         <el-row>
+            菜单基本信息
+        </el-row>
+        <el-row>
           <el-col :span="21">
-            <el-form-item style="margin-bottom: 40px;" prop="title">
-              <MDinput name="name" v-model="postForm.title" required :maxlength="100">
-                标题
+            <el-form-item style="margin-bottom: 40px;" prop="menuName">
+              <MDinput name="name" v-model="postForm.menuName" required :maxlength="100">
+                菜单名称
               </MDinput>
-              <span v-show="postForm.title.length>=26" class='title-prompt'>app可能会显示不全</span>
+             <!-- <span v-show="postForm.title.length>=26" class='title-prompt'>app可能会显示不全</span>-->
             </el-form-item>
 
             <div class="postInfo-container">
               <el-row>
-                <el-col :span="8">
-                  <el-form-item label-width="45px" label="作者:" class="postInfo-container-item">
-                    <multiselect v-model="postForm.author" :options="userLIstOptions" @search-change="getRemoteUserList" placeholder="搜索用户" selectLabel="选择"
-                      deselectLabel="删除" track-by="key" :internalSearch="false" label="key">
-                      <span slot='noResult'>无结果</span>
-                    </multiselect>
-                  </el-form-item>
-                </el-col>
+                <el-form-item label="上级菜单" prop="parentMenu">
+                  <el-input v-model="postForm.parentMenu">{{parentLabel}}</el-input>
+                </el-form-item>
 
-                <el-col :span="8">
-                  <el-tooltip class="item" effect="dark" content="将替换作者" placement="top">
-                    <el-form-item label-width="50px" label="来源:" class="postInfo-container-item">
-                      <el-input placeholder="将替换作者" style='min-width:150px;' v-model="postForm.source_name">
-                      </el-input>
-                    </el-form-item>
-                  </el-tooltip>
-                </el-col>
+              </el-row>
+              <el-row>
+                <el-form-item label="菜单URL" prop="menuUrl">
+                  <el-input v-model="postForm.menuUrl"></el-input>
+                </el-form-item>
 
-                <el-col :span="8">
-                  <el-form-item label-width="80px" label="发布时间:" class="postInfo-container-item">
-                    <el-date-picker v-model="postForm.display_time" type="datetime" format="yyyy-MM-dd HH:mm:ss" placeholder="选择日期时间">
-                    </el-date-picker>
-                  </el-form-item>
-                </el-col>
               </el-row>
             </div>
           </el-col>
         </el-row>
 
-        <el-form-item style="margin-bottom: 40px;" label-width="45px" label="摘要:">
-          <el-input type="textarea" class="article-textarea" :rows="1" autosize placeholder="请输入内容" v-model="postForm.content_short">
-          </el-input>
-          <span class="word-counter" v-show="contentShortLength">{{contentShortLength}}字</span>
-        </el-form-item>
 
+        <el-form-item>
+          <el-button type="primary" @click="submitForm()">提交</el-button>
+          <el-button @click="resetForm('postForm')">重置</el-button>
+        </el-form-item>
 
       </div>
     </el-form>
@@ -71,12 +59,12 @@ const defaultForm = {
   content: '', // 文章内容
   content_short: '', // 文章摘要
   source_uri: '', // 文章外链
-  image_uri: '', // 文章图片
+  menuUrl:'',//菜单URL
   source_name: '', // 文章外部作者
   display_time: undefined, // 前台展示时间
   id: undefined,
-  platforms: ['a-platform'],
-  comment_disabled: false
+  comment_disabled: false,
+  menuName:''//菜单名字
 }
 
 export default {
@@ -116,15 +104,11 @@ export default {
       }
     }
     return {
+      parentLabel: '',
       postForm: Object.assign({}, defaultForm),
       fetchSuccess: true,
       loading: false,
       userLIstOptions: [],
-      platformsOptions: [
-        { key: 'a-platform', name: 'a-platform' },
-        { key: 'b-platform', name: 'b-platform' },
-        { key: 'c-platform', name: 'c-platform' }
-      ],
       rules: {
         image_uri: [{ validator: validateRequire }],
         title: [{ validator: validateRequire }],
@@ -173,6 +157,8 @@ export default {
           return false
         }
       })
+    }, resetForm(formName) {
+      this.$refs[formName].resetFields();
     },
     draftForm() {
       if (this.postForm.content.length === 0 || this.postForm.title.length === 0) {
