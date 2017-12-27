@@ -31,13 +31,13 @@
   import MenuTree from './components/MenuTree'
   import MenuDetail from './components/MenuDetail'
   import Lodash from 'lodash'
+
   export default {
     name: 'menuIndes',
     components: { MenuTree,MenuDetail,CollapseTransition},
     data: function () {
       return {
-        parentLabel:'',
-
+        show3:true,
         mainHeight: document.body.clientHeight-150
       }
     },

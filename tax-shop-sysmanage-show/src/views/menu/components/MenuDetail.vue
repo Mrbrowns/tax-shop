@@ -17,7 +17,7 @@
             <div class="postInfo-container">
               <el-row>
                 <el-form-item label="上级菜单" prop="parentMenu">
-                  <el-input v-model="postForm.parentMenu">{{parentLabel}}</el-input>
+                  <el-input >{{labelName}}</el-input>
                 </el-form-item>
 
               </el-row>
@@ -64,7 +64,9 @@ const defaultForm = {
   display_time: undefined, // 前台展示时间
   id: undefined,
   comment_disabled: false,
-  menuName:''//菜单名字
+  menuName:'',//菜单名字
+  parentLabel:''
+
 }
 
 export default {
@@ -76,6 +78,7 @@ export default {
       default: false
     }
   },
+
   data() {
     const validateRequire = (rule, value, callback) => {
       if (value === '') {
@@ -104,7 +107,6 @@ export default {
       }
     }
     return {
-      parentLabel: '',
       postForm: Object.assign({}, defaultForm),
       fetchSuccess: true,
       loading: false,
@@ -118,9 +120,12 @@ export default {
     }
   },
   computed: {
+    labelName(){
+      return this.$store.state.labelName;
+    },
     contentShortLength() {
       return this.postForm.content_short.length
-    }
+    },
   },
   created() {
     if (this.isEdit) {

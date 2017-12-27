@@ -20,12 +20,14 @@
 </template>
 <script>
   // collapse 展开折叠
-
+  import MenuDetail from './MenuDetail.vue';
   let id = 1000;
 
   export default {
     name:"menuTree",
-
+    props: {
+      labelName: ''
+    },
     watch: {
       filterText(val) {
         this.$refs.tree2.filter(val);
@@ -33,7 +35,6 @@
     },
     data() {
       return {
-        parentLabel: '',
         filterText: '',
         data4:
          [{id: 0
@@ -82,7 +83,7 @@
 
     methods: {
       handleNodeClick(data) {
-        return parentLabel=>data.label;
+        this.labelName = data.label;
       },
       append(data) {
         const newChild = { id: id++, label: 'testtest', children: [] };
